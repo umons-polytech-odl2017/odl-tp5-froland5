@@ -146,10 +146,27 @@ public class Student {
         return registrationNumber;
     }
 
+    public Map<String, Integer> getScoreByCourse() {
+        return scoreByCourse;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder(getName());
         sb.append(" (").append(getRegistrationNumber()).append(")");
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(registrationNumber, student.registrationNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(registrationNumber);
     }
 }

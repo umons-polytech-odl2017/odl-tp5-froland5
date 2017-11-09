@@ -24,46 +24,45 @@ public class ClassroomTest {
     @Before
     public void fillInClassroom() {
         classroom = new Classroom();
-        Set<Student> students = new HashSet<>();
         hodor = new Student("Hodor", "001003");
         hodor.setScore("hunting", 12);
         hodor.setScore("figthing", 14);
         hodor.setScore("running", 10);
-        students.add(hodor);
+        classroom.addStudent(hodor);
         osha = new Student("Osha", "001005");
         osha.setScore("fighting", 14);
         osha.setScore("cooking", 4);
         osha.setScore("swimming", 4);
-        students.add(osha);
+        classroom.addStudent(osha);
         branStark = new Student("Bran Stark", "001006");
         branStark.setScore("running", 0);
         branStark.setScore("archery", 14);
-        students.add(branStark);
+        classroom.addStudent(branStark);
         gregorClegane = new Student("Gregor Clegane", "001008");
         gregorClegane.setScore("fighting", 18);
         gregorClegane.setScore("running", 10);
         gregorClegane.setScore("hunting", 16);
-        students.add(gregorClegane);
+        classroom.addStudent(gregorClegane);
         myrcellaBaratheon = new Student("Myrcella Baratheon", "001011");
         myrcellaBaratheon.setScore("cooking", 14);
         myrcellaBaratheon.setScore("swimming", 16);
         myrcellaBaratheon.setScore("archery", 8);
-        students.add(myrcellaBaratheon);
+        classroom.addStudent(myrcellaBaratheon);
         maesterAemon = new Student("Maester Aemon", "001019");
         maesterAemon.setScore("running", 2);
         maesterAemon.setScore("cooking", 16);
         maesterAemon.setScore("hunting", 17);
-        students.add(maesterAemon);
+        classroom.addStudent(maesterAemon);
         yaraGreyjoy = new Student("Yara Greyjoy", "001028");
         yaraGreyjoy.setScore("swimming", 18);
         yaraGreyjoy.setScore("fighting", 19);
         yaraGreyjoy.setScore("hunting", 16);
-        students.add(yaraGreyjoy);
+        classroom.addStudent(yaraGreyjoy);
         thorosOfMyr = new Student("Thoros of Myr", "001037");
         thorosOfMyr.setScore("fighting", 15);
         thorosOfMyr.setScore("archery", 10);
         thorosOfMyr.setScore("cooking", 19);
-        students.add(thorosOfMyr);
+        classroom.addStudent(thorosOfMyr);
     }
 
     @Test
@@ -77,7 +76,7 @@ public class ClassroomTest {
     }
 
     @Test
-    public void topScorers(String course, int n) {
+    public void topScorers() {
         assertThat(classroom.topScorers("fighting", 3)).containsExactly(yaraGreyjoy, gregorClegane, thorosOfMyr);
     }
 
